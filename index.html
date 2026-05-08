@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>For My Love ❤️</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#f7f7f5;
+  color:#111;
+  font-family:'Inter',sans-serif;
+  overflow:hidden;
+}
+
+/* PAGES */
+
+.page{
+  display:none;
+  width:100%;
+  height:100vh;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding:40px;
+  animation:fade 0.7s ease;
+}
+
+.active{
+  display:flex;
+}
+
+/* GLASS STYLE */
+
+.secret-box,
+.card,
+.content{
+
+  background:rgba(255,255,255,0.75);
+
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(0,0,0,0.06);
+
+  border-radius:28px;
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,0.06);
+}
+
+/* SECRET BOX */
+
+.secret-box{
+  width:100%;
+  max-width:430px;
+  padding:55px;
+  text-align:center;
+}
+
+.secret-box h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.7rem;
+  margin-bottom:15px;
+  font-weight:700;
+}
+
+.secret-box p{
+  color:#666;
+  line-height:1.8;
+}
+
+.secret-box input{
+
+  width:100%;
+
+  margin-top:25px;
+
+  padding:16px;
+
+  border-radius:16px;
+
+  border:1px solid #ddd;
+
+  background:white;
+
+  font-size:1rem;
+
+  outline:none;
+
+  transition:0.3s;
+}
+
+.secret-box input:focus{
+  border-color:#999;
+}
+
+/* BUTTONS */
+
+button{
+  padding:14px 30px;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  font-size:1rem;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+/* DATE BUTTONS */
+
+
+.buttons{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.yes-btn,
+.back{
+
+  margin-top:24px;
+
+  padding:15px 34px;
+
+  border-radius:50px;
+
+  background:#111;
+
+  color:white;
+
+  font-size:0.95rem;
+
+  font-weight:500;
+}
+
+.yes-btn:hover,
+.back:hover{
+
+  background:#2a2a2a;
+
+  transform:translateY(-2px);
+}
+
+.no-btn{
+
+  margin-top:24px;
+
+  padding:15px 34px;
+
+  border-radius:50px;
+
+  background:white;
+
+  border:1px solid #ddd;
+
+  color:#444;
+}
+
+.no-btn:hover{
+  background:#f2f2f2;
+}
+
+/* BOTH BUTTONS */
+
+.yes-btn,
+.no-btn{
+
+  width:170px;
+  height:60px;
+
+  border-radius:16px;
+
+  font-size:1rem;
+
+  font-weight:600;
+
+  transition:0.35s ease;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+}
+
+/* YES BUTTON */
+
+.yes-btn{
+
+  background:#111;
+
+  color:white;
+}
+
+/* NO BUTTON */
+
+.no-btn{
+
+  background:white;
+
+  border:1px solid #d9d9d9;
+
+  color:#444;
+}
+
+/* DATE PAGE */
+
+.question{
+
+  font-family:'Playfair Display',serif;
+
+  font-size:4.5rem;
+
+  line-height:1.15;
+
+  text-align:center;
+
+  max-width:950px;
+
+  margin-bottom:35px;
+}
+
+.buttons{
+  display:flex;
+  gap:18px;
+}
+
+#noMessage{
+
+  margin-top:24px;
+
+  color:#777;
+
+  font-size:0.95rem;
+}
+
+/* HOME PAGE */
+
+.main-title{
+
+  font-family:'Playfair Display',serif;
+
+  font-size:5rem;
+
+  margin-bottom:12px;
+}
+
+.subtitle{
+
+  color:#666;
+
+  margin-bottom:55px;
+
+  letter-spacing:0.5px;
+}
+
+.menu{
+
+  width:100%;
+
+  max-width:1100px;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:24px;
+}
+
+/* CARDS */
+
+.card{
+
+  padding:45px 35px;
+
+  transition:0.35s ease;
+
+  cursor:pointer;
+}
+
+.card:hover{
+
+  transform:translateY(-8px);
+
+  box-shadow:
+  0 18px 40px rgba(0,0,0,0.08);
+}
+
+.card h2{
+
+  font-family:'Playfair Display',serif;
+
+  margin-bottom:14px;
+
+  font-size:1.8rem;
+}
+
+.card p{
+
+  color:#666;
+
+  line-height:1.8;
+}
+
+/* CONTENT PAGES */
+
+.content{
+
+  width:100%;
+
+  max-width:920px;
+
+  padding:60px;
+
+  overflow-y:auto;
+
+  max-height:85vh;
+}
+
+.content h1{
+
+  font-family:'Playfair Display',serif;
+
+  font-size:3rem;
+
+  margin-bottom:30px;
+}
+
+.content p{
+
+  color:#333;
+
+  line-height:2;
+
+  font-size:1.05rem;
+}
+
+/* NOTES */
+
+.note{
+
+  background:white;
+
+  padding:22px;
+
+  border-radius:18px;
+
+  margin-bottom:18px;
+
+  border:1px solid #ececec;
+
+  color:#444;
+}
+
+/* GALLERY */
+
+.gallery{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:20px;
+}
+
+.gallery img{
+
+  width:100%;
+
+  height:260px;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  transition:0.4s ease;
+}
+
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* MUSIC */
+
+.music iframe{
+
+  width:100%;
+
+  height:90px;
+
+  border:none;
+
+  border-radius:16px;
+
+  margin-bottom:20px;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#d0d0d0;
+  border-radius:20px;
+}
+
+/* ANIMATION */
+
+@keyframes fade{
+
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* MOBILE */
+html, body{
+  width:100%;
+  height:100%;
+  overflow-x:hidden;
+}
+
+/* FIX CENTERING ACROSS ALL DEVICES */
+
+.page{
+  padding:20px;
+  text-align:center;
+}
+
+/* PREVENT TEXT FROM OVERSCALING ON MOBILE */
+
+.question{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem, 4vw, 4.5rem);
+  line-height:1.2;
+  max-width:900px;
+}
+
+/* HOME TITLE RESPONSIVE */
+
+.main-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.5rem, 5vw, 5rem);
+}
+
+/* BUTTON WRAP FIX */
+
+.buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* CARDS ALWAYS CENTERED */
+
+.menu{
+  width:100%;
+  max-width:1100px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:20px;
+  padding:0 10px;
+}
+
+/* CONTENT STAYS READABLE ON MOBILE */
+
+.content{
+  width:100%;
+  max-width:900px;
+  padding:clamp(25px, 4vw, 60px);
+  max-height:85vh;
+  overflow-y:auto;
+}
+
+/* SECRET BOX RESPONSIVE */
+
+.secret-box{
+  width:92%;
+  max-width:420px;
+  padding:clamp(30px, 6vw, 55px);
+}
+
+/* GALLERY FIX */
+
+.gallery{
+  grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+}
+
+/* IMAGES NEVER BREAK LAYOUT */
+
+.gallery img{
+  height:200px;
+  width:100%;
+  object-fit:cover;
+}
+
+/* NO ZOOM ISSUES ON MOBILE */
+
+button{
+  font-size:0.95rem;
+}
+
+/* REMOVE ANY MOBILE SCALING DIFFERENCES */
+
+@media (max-width:480px){
+
+  .question{
+    font-size:2rem;
+  }
+
+  .main-title{
+    font-size:2.4rem;
+  }
+
+  .content h1{
+    font-size:2.2rem;
+  }
+
+  .gallery img{
+    height:180px;
+  }
+
+}
+
+/* NAVBAR */
+
+.navbar{
+
+  width:100%;
+
+  position:absolute;
+
+  top:0;
+
+  left:0;
+
+  padding:30px 60px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+/* LOGO */
+
+.logo{
+
+  font-size:1.8rem;
+
+  font-family:'Playfair Display',serif;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+}
+
+/* NAV LINKS */
+
+nav{
+
+  display:flex;
+
+  gap:35px;
+}
+
+nav a{
+
+  color:#222;
+
+  text-decoration:none;
+
+  cursor:pointer;
+
+  font-size:0.95rem;
+
+  transition:0.3s;
+}
+
+nav a:hover{
+
+  opacity:0.5;
+}
+
+/* HERO */
+
+.hero{
+
+  width:100%;
+
+  height:100vh;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:70px;
+
+  padding:120px 80px 40px;
+}
+
+/* LEFT */
+
+.hero-text{
+
+  flex:1;
+
+  max-width:600px;
+
+  text-align:left;
+}
+
+.small-text{
+
+  letter-spacing:3px;
+
+  color:#888;
+
+  margin-bottom:20px;
+
+  font-size:0.8rem;
+}
+
+.hero-text h1{
+
+  font-family:'Playfair Display',serif;
+
+  font-size:5rem;
+
+  line-height:1.05;
+
+  margin-bottom:25px;
+}
+
+.hero-description{
+
+  color:#555;
+
+  line-height:2;
+
+  font-size:1.05rem;
+
+  margin-bottom:35px;
+}
+
+/* RIGHT IMAGE */
+
+.hero-image{
+
+  flex:1;
+
+  display:flex;
+
+  justify-content:center;
+}
+
+.hero-image img{
+
+  width:100%;
+
+  max-width:420px;
+
+  height:520px;
+
+  object-fit:cover;
+
+  border-radius:24px;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* FOOTER */
+
+footer{
+
+  width:100%;
+
+  text-align:center;
+
+  margin-top:30px;
+
+  padding-bottom:20px;
+
+  color:#777;
+
+  font-size:0.9rem;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+  .hero{
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding-top:140px;
+  }
+
+  .hero-text{
+
+    text-align:center;
+  }
+
+  .hero-text h1{
+
+    font-size:3.2rem;
+  }
+
+  .hero-image img{
+
+    height:420px;
+
+    max-width:320px;
+  }
+
+  .navbar{
+
+    padding:25px;
+  }
+
+  nav{
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    justify-content:flex-end;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- SECRET PAGE -->
+
+<div class="page active" id="secretPage">
+
+  <div class="secret-box">
+
+    <h1>🔐 Secret Access</h1>
+
+    <p>
+      Only the prettiest girl can enter❤️
+    </p>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter Secret Word"
+    >
+
+    <button onclick="checkPassword()" class="yes-btn">
+      Enter
+    </button>
+
+    <p id="error" style="margin-top:15px;color:#fff;display:none;">
+      Wrong secret word!
+    </p>
+
+  </div>
+
+</div>
+
+<!-- DATE PAGE -->
+
+<div class="page" id="datePage">
+
+  <h1 class="question">
+    Hey mamas,
+  </h1>
+  <h2 class="question">
+    I can't stop thinking about your smile. Let me see it tomorrow? Lunch is on me... okay?❤️
+  </h2>
+
+  <div class="buttons">
+
+    <button class="yes-btn" onclick="goHome()">
+      YES ❤️
+    </button>
+
+    <button class="no-btn" id="noBtn" onclick="shrinkNo()">
+      No
+    </button>
+
+  </div>
+
+  <div id="noMessage"></div>
+
+</div>
+
+<!-- HOME PAGE -->
+
+<div class="page active" id="homePage">
+
+  <!-- HEADER -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      X.
+    </div>
+
+    <nav>
+
+      <a onclick="openPage('letterPage')">
+        Love Letter
+      </a>
+
+      <a onclick="openPage('notesPage')">
+        Notes
+      </a>
+
+      <a onclick="openPage('galleryPage')">
+        Gallery
+      </a>
+
+      <a onclick="openPage('musicPage')">
+        Music
+      </a>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+
+    <!-- LEFT -->
+
+    <div class="hero-text">
+
+      <p class="small-text">
+        NTSAKO
+      </p>
+
+      <h1>
+        Welcome,<br>
+        Mamas.
+      </h1>
+
+      <p class="hero-description">
+
+        I created this little space
+        just for you. A place filled
+        with beauty,
+        music, and words that
+        remind me of how truly special you are.
+
+      </p>
+
+      <button class="yes-btn"
+      onclick="openPage('letterPage')">
+
+        Read My Letter
+
+      </button>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="hero-image">
+
+      <!-- REPLACE IMAGE -->
+
+      <img src="picture.webp">
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    Designed & created with love by
+    <strong>X</strong>
+
+  </footer>
+
+</div>
+
+<!-- LOVE LETTER PAGE -->
+
+<div class="page" id="letterPage">
+
+  <div class="content">
+
+    <h1>My Love Letter</h1>
+
+    <p>
+      Mamas,
+      <br><br>
+
+      I honestly don't know how I ended up here,
+      but I'm loving every moment of having you on
+      my mind. To be honest, I didn't plan for how we 
+      ended the night the last Saturday we were together,
+      but I'm so glad it happened. You're intoxicating,
+      and I'm completely addicted to you. Everything
+      about being with you felt incredible, from the way
+      you looked to the sound of your voice. You've been on
+      my mind ever since. You're a work of art. Xikwembu xi
+      teke nkarhi wa xoho loko xi make wehe. I would swear
+      you was made for me.
+      <br><br>
+
+      I hope this doesn't come off as too much, but if you
+      made it this far, thank you for reading. I want you
+      to look back at this whenever you're feeling down or undervalued,
+      just to remind yourself how truly special you are. Not
+      just for your beauty, but for your mind.
+      <br><br>
+
+      With all my heart❤️
+    </p>
+
+    <button class="back" onclick="goHome()">
+      Back
+    </button>
+
+  </div>
+
+</div>
+
+<!-- NOTES PAGE -->
+
+<div class="page" id="notesPage">
+
+  <div class="content">
+
+    <h1>📝 Notes For You</h1>
+
+    <div class="note">
+      I'm so proud of how far you've come. I know it
+      is not always easy, but keep going; there's 
+      always a way to overcome anything. How do I 
+      know? Because I'm right there on that same road 
+      with you, and I always have been.
+    </div>
+
+    <div class="note">
+      You are literally my favorite person.
+    </div>
+
+    <div class="note">
+      Never forget how beautiful you are.
+    </div>
+
+    <div class="note">
+      I’m proud of you every single day.
+    </div>
+
+    <div class="note">
+      Your smile deserves the whole world.
+    </div>
+
+    <button class="back" onclick="goHome()">
+      Back
+    </button>
+
+  </div>
+
+</div>
+
+<!-- GALLERY PAGE -->
+
+<div class="page" id="galleryPage">
+
+  <div class="content">
+
+    <h1>Things I'd Love To Do With You</h1>
+
+    <div class="gallery">
+
+      <!-- REPLACE THESE IMAGES -->
+
+      <img src="https://kawaiibdsm.com/cdn/shop/products/rBVaGVbpFS6AII9-AAGOkQLcjtk216_300x300.jpg?v=1605990937">
+      <img src="https://i.pinimg.com/originals/ed/49/2c/ed492c709be80a6c872be1e62f4b0a31.png">
+      <img src="https://i.pinimg.com/736x/5d/b3/f4/5db3f4077e7d3f51c5fe93432fbe1fe3.jpg">
+      <img src="https://tse1.explicit.bing.net/th/id/OIP.RhOs5iEVhtzgPlYXo6MtxgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
+
+    </div>
+
+    <button class="back" onclick="goHome()">
+      Back
+    </button>
+
+  </div>
+
+</div>
+
+<!-- MUSIC PAGE -->
+
+<div class="page" id="musicPage">
+
+  <div class="content music">
+
+    <h1>🎵 Songs For You</h1>
+
+    <!-- Replace with your songs -->
+
+    <iframe
+  src="https://open.spotify.com/embed/track/4T3fNx3CgwDRRYgmFCbD4J"
+  width="100%"
+  height="100"
+  frameborder="0"
+  allowfullscreen=""
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
+   <iframe
+  src="https://open.spotify.com/embed/track/7GuT4oeA2TXULHYQvn3NHF"
+  width="100%"
+  height="100"
+  frameborder="0"
+  allowfullscreen=""
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
+    <button class="back" onclick="goHome()">
+      Back
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+
+/* SECRET PASSWORD */
+
+const secretPassword = "iloveyou";
+
+/* PASSWORD CHECK */
+
+function checkPassword(){
+
+  const password =
+    document.getElementById("password").value;
+
+  if(password === secretPassword){
+
+    showPage("datePage");
+
+  }else{
+
+    document.getElementById("error")
+      .style.display = "block";
+  }
+}
+
+/* PAGE SYSTEM */
+
+function showPage(pageId){
+
+  const pages =
+    document.querySelectorAll(".page");
+
+  pages.forEach(page => {
+
+    page.classList.remove("active");
+
+  });
+
+  document.getElementById(pageId)
+    .classList.add("active");
+}
+
+/* OPEN HOME */
+
+function goHome(){
+
+  showPage("homePage");
+}
+
+/* OPEN OTHER PAGES */
+
+function openPage(pageId){
+
+  showPage(pageId);
+}
+
+/* NO BUTTON */
+
+let noSize = 1;
+
+const noMessages = [
+
+
+  "👀",
+
+  "What?👀",
+
+  "😏 ",
+
+  "You’ll break my heart 💔",
+
+  "Pleaseeeee ❤️",
+
+  "You know you want to "
+
+];
+
+let noIndex = 0;
+
+function shrinkNo(){
+
+  const noBtn =
+    document.getElementById("noBtn");
+
+  const message =
+    document.getElementById("noMessage");
+
+  noSize -= 0.15;
+
+  noBtn.style.transform =
+    `scale(${noSize})`;
+
+  message.innerHTML =
+    noMessages[noIndex];
+
+  noIndex++;
+
+  if(noIndex >= noMessages.length){
+
+    noIndex = 0;
+  }
+
+  if(noSize <= 0.3){
+
+    noBtn.style.display = "none";
+
+    message.innerHTML =
+      "Ooopps!❤️";
+  }
+}
+
+</script>
+
+</body>
+</html>
